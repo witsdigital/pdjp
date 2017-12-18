@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-title>Novo Orçamento</ion-title>
+    <ion-buttons end>
+      <button (click)="close()" ion-button icon-only color="royal">
+        Fechar <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content >
+    <div class="slide">
+        <ion-slides  *ngIf="imagens && imagens.length" autoplay="5000" class="slideroption" pager="true"   loop="true" speed="300">
+          <ion-slide *ngFor="let slide of imagens">
+            <img [src]="slide.caminho">
+          </ion-slide>
+        </ion-slides>
+      </div>
+  <ion-item-group>
+    <ion-item-divider color="light" style="background-color:#EBEBEB"><span style="color:#4C959F">Descrição</span></ion-item-divider>
+
+    <ion-item>
+      <p class="my-content line-break">{{cadastro.descricao}}</p>
+    </ion-item>
+
+
+    <ion-item-divider color="light" style="background-color:#EBEBEB"><span style="color:#4C959F">Data da execução</span>  </ion-item-divider>
+    <ion-item>
+      <span *ngIf="cadastro.dataexecut==1">Hoje</span>
+      <span *ngIf="cadastro.dataexecut==2">Esta semana</span>
+      <span *ngIf="cadastro.dataexecut==3">Este Mês</span>
+      <span *ngIf="cadastro.dataexecut==4">Não sei direito</span>
+
+    </ion-item>
+    <ion-item-divider color="light" style="background-color:#EBEBEB"><span style="color:#4C959F">Status do orçamento</span>  </ion-item-divider>
+    <div *ngIf="ct.count==1">
+        <ion-item>
+       <font color="green">Respondido</font>
+        </ion-item>
+      </div>
+    <div *ngIf="ct.count==0">
+    <ion-item>
+      <ion-label> deseja aceitar orçamento?</ion-label>
+        <ion-toggle [disabled]="cadastro.selcan"  [(ngModel)]="cadastro.selend"></ion-toggle>
+    </ion-item>
+    <div *ngIf="cadastro.selend" class="">
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="cadastro.valor" placeholder="Valor"></ion-input>
+    </ion-item>
+    </div>
+  </div>
+  <div *ngIf="ct.count==0">
+  <ion-item>
+    <ion-label> deseja cancelar o orçamento?</ion-label>
+      <ion-toggle [disabled]="cadastro.selend" [(ngModel)]="cadastro.selcan"></ion-toggle>
+  </ion-item>
+  <div *ngIf="cadastro.selcan" class="">
+    <ion-item>
+      <ion-label> Orçamento não houve comprensão</ion-label>
+        <ion-toggle  [(ngModel)]="cadastro.nc"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label> Data não disponível</ion-label>
+        <ion-toggle   [(ngModel)]="cadastro.nd"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label> Outros agravantes</ion-label>
+        <ion-toggle  [(ngModel)]="cadastro.no"></ion-toggle>
+    </ion-item>
+  </div>
+</div>
+
+
+
+
+
+
+
+</ion-item-group>
+    <div *ngIf="ct.count==0">
+<button ion-button block color="secondary" [disabled]="!cadastro.valor" [disabled]="!cadastro.selcan || !(cadastro.nc || cadastro.nd || cadastro.no)" (click)="cadOrc(cadastro)">Responder</button>
+</div>
+
+
+
+</ion-content>

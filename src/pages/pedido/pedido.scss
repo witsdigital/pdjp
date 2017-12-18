@@ -1,0 +1,136 @@
+page-pedido {
+    ion-card {
+        position: relative;
+        text-align: center;
+        height: 40%;
+      }
+    
+      .titulototal{
+        font-weight: bold;
+        text-align: center;
+        color: #FFF;
+    
+      }
+      .item{
+        .p{  font-weight: bold;
+              color: #0b6384;
+        }
+        .icon{
+          color: red;
+        }
+    
+      }
+    
+      .card{
+    
+        margin: 0 0 0 0;
+        border-radius: 2px;
+        width: 100%;
+        font-size: 1.4rem;
+        background: #ededed;
+    
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0);
+    }
+      .list a.item{
+      border-top: 0px;
+      border-left: 0px;
+      border-right: 0px;
+      border-bottom: 0px;
+      }
+    
+      .boxcont{
+    
+        background-color: #0980ef;
+      //  border: 1px solid red;
+    
+      }
+      .boxcont2{
+    
+        background-color: #38be10;
+      //  border: 1px solid red;
+    
+      }
+      .tituloreput{
+        font-weight: bold;
+        margin-top: 20px;
+        text-align: center;
+        font-size: 20px;
+        color: #ff7200;
+    
+      }
+      .star{
+        padding: 1px;
+        color: #e9cc07;
+      }
+      .reputacao{
+        margin-top: -10px;
+        font-size: 30px;
+        color: #4c9014;
+            font-weight: bold;
+        text-align: center;
+      }
+      .numtotal{
+        color: #FFF;
+        font-weight: bold;
+        text-align: center;
+        font-size: 25px;
+    
+      }
+      .editar{
+        position: absolute;
+        right: 20px;
+        top: 20px;
+          font-weight: bold;
+          font-size: 18px;
+          color: #0980ef;
+    
+      }
+    
+    
+      .iconperfforn{
+            background-color: red;
+    
+    
+        padding: 20%;
+    
+        color: #ccc;
+        border-radius: 20px;
+    
+      }
+      .iconsbox{
+        padding: 0px 20px 20px 20px;
+        margin-top: -10px;
+      }
+      .boxreput{
+        margin-top: -60px;
+      }
+    
+    
+    
+      .destaquecat{
+        border-radius:50%;
+          width: 35%;
+          margin-top: 10px;
+    
+      }
+      .card-title{
+          font-weight: bold;
+          font-size: 20px;
+          color: #605f5d;
+    
+      }
+      .estrelas{
+        margin-top: -10px;
+        font-size: 30px;
+      }
+      .estrelas input[type=radio] {
+      display: none;
+    }
+    .estrelas label i.fa:before {
+      content:'\f005';
+      color: #FC0;
+    }
+    .estrelas input[type=radio]:checked ~ label i.fa:before {
+      color: #CCC;
+    }
+}

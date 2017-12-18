@@ -1,0 +1,68 @@
+
+
+page-login {
+  .boxinput{
+    margin-top:60%;
+
+  }
+
+  .imput{
+
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px !important;
+    padding-left: 30px !important;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    border: 1px solid #ffffff;
+    border-bottom: 0px !important;
+    box-shadow: none !important;
+    width: 80%;
+
+  }
+  .toolsbox{
+
+    background-color: #fff;
+  }
+  .logo{
+    position: absolute;
+    left: 10%;
+    width: 80%;
+
+
+  }
+
+  .toast{
+    background-color: red;
+     text-align:center;
+  }
+  .newaccount{
+    color: #FFF;
+           font-weight: bold;
+
+
+  }
+  .recsenha{
+    color: #FFF;
+
+
+  }
+
+      .login{
+        background-image: url('../assets/bglogin.png');
+
+
+      }
+
+
+}
+.toast-error {
+> div{
+     background-color:#ff0000!important;
+ }
+}
+.toast-success {
+> div{
+     background-color:#6ea70a!important;
+ }
+}

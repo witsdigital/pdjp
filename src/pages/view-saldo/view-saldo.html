@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-title>Saldo</ion-title>
+    <ion-buttons end>
+      <button (click)="close()" ion-button icon-only color="royal">
+        Fechar <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+<div class="debito">
+  Debito
+  <p>{{ct.saldo | number:'1.2' }}</p>
+</div>
+<div class="total" col-6>
+     Lucro<p> R$ {{ct.valortotal | number:'1.2'}}</p>
+</div>
+    <div class="total" col-6>
+     Serviços <p>{{ct.quantidadeservicos | number:'3.0'}}</p>
+  </div>
+  <button ion-button block (click)="pagamento()" color="primary">Opções de Pagamento</button>
+  
+</ion-content>

@@ -1,0 +1,65 @@
+
+
+<ion-content >
+
+
+  <ion-card class="card-background-page">
+      <span class="editar" (click)="edit()">Editar</span>
+
+<div align="center" class="">
+      <img  class="destaquecat" src="assets/avatar.jpg" alt="">
+
+</div>
+  <div class="card-title">{{dadosUser[0].nome}}</div>
+  <div class="card-subtitle">{{dadosUser[0].email}}</div>
+  </ion-card>
+
+<ion-row >
+
+<ion-col class="boxcont" col-6>
+<p class="titulototal">  Serviços Concluído</p>
+  <p class="numtotal">5</p>
+</ion-col>
+<ion-col col-6 class="boxcont2">
+  <p class="titulototal">  Serviços Solicitados</p>
+<p class="numtotal">{{countpend}}</p>
+</ion-col>
+
+</ion-row>
+<ion-row>
+<ion-col col-12>
+<p class="tituloreput">Reputação</p>
+<p class="reputacao">
+  <ion-icon class="star" name="star"></ion-icon>
+<ion-icon class="star" name="star"></ion-icon>
+<ion-icon class="star" name="star"></ion-icon>
+<ion-icon class="star" name="star"></ion-icon>
+<ion-icon class="star" name="star"></ion-icon></p>
+</ion-col>
+
+</ion-row>
+<button (click)="share()" ion-item>
+  <ion-icon name="ios-share-outline" item-start></ion-icon>
+<p>Compartilhar</p>
+</button>
+
+<button (click)="updatePass()" ion-item>
+  <ion-icon name="ios-unlock-outline"  item-start></ion-icon>
+<p>Alterar Senha</p>
+</button>
+
+<button ion-item>
+  <ion-icon name="ios-bookmarks-outline" item-start></ion-icon>
+<p>Como funciona</p>
+</button>
+
+<button ion-item>
+  <ion-icon name="ios-help-circle-outline" item-start></ion-icon>
+<p>Ajuda</p>
+</button>
+
+<button (click)="exit()" ion-item>
+  <ion-icon name="ios-exit-outline" item-start></ion-icon>
+<p>Sair</p>
+</button>
+</ion-content>

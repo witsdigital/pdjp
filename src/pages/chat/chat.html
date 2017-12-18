@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title class="titulo">{{usuarios[0].nome}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item no-lines *ngFor="let item of lista">
+      <div class="position" *ngIf="item.id_user == dadosUser.id_usuario">
+        <p>{{item.mensagem}}</p>
+        <h6>{{item.data | date:'HH:mm'}}</h6>
+      </div>
+      <div class="position1" *ngIf="item.id_user != dadosUser.id_usuario">
+          <p>{{item.mensagem}}</p>
+          <h6>{{item.data | date:'HH:mm'}}</h6>
+        </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-item no-lines>
+    <ion-input type="text" (keyup.enter)="enviarMensagem(); mensagem=''" [(ngModel)]="mensagem" placeholder="Mensagem"></ion-input>
+    <button ion-button item-right>
+    <ion-icon name="send" (click)="enviarMensagem(); mensagem=''"></ion-icon>  
+  </button>  
+    </ion-item> 
+  </ion-toolbar>
+</ion-footer>
+
+
+
+
+
