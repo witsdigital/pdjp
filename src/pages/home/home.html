@@ -1,67 +1,64 @@
 
-<ion-header>
-  <ion-toolbar color="homeheader">
-      <ion-title>Pedidos</ion-title>
-    <ion-buttons end>
-      <button ion-button menuToggle>
-        <ion-icon name="ios-basket-outline"></ion-icon>
 
-      </button>
-    </ion-buttons>
-
-  </ion-toolbar>
-</ion-header>
 
 <ion-content class="home" >
 
-  <ion-list>
-    <div *ngFor="let item of pedidos | slice:0:5; let i=index">
-    <ion-card (click)="openPedido(item)"   class="cardrad">
-  
-      
-      <ion-card-header>
-  Pedido:
-  </ion-card-header>
-  <button ion-item>
-    <ion-icon name="build"></ion-icon> 
-  <span class="tituloservice"> {{item.nome}}</span>
-  </button>
-  <ion-row >
-   <ion-col class="footercard" col-9>
-    <button    ion-button icon-left clear small>
-      <ion-icon name="checkmark"></ion-icon>
-      <div> <span >O serviço pode ser executado</span></div>
-    </button>
-  
-  </ion-col>
-  
-  
-  
-  
-   <ion-col  col-3>
-     <ion-note class=" datecard">  
-       <p><ion-icon name="ios-calendar-outline"></ion-icon></p>
-  <p>{{item.data | date: 'dd/MM/yyyy'}}</p>
-  </ion-note>
-   </ion-col>
-  
-  </ion-row>
-  </ion-card>
+  <div class="saldo" *ngFor="let p of saldo" >
+
+    <div class="debito">
+      Debito
+      <p>{{p.saldo | number:'1.2' }}</p>
+    </div>
+    <div class="total" col-6>
+         Lucro<p> R$ {{p.valortotal | number:'1.2'}}</p>
+    </div>
+        <div class="total" col-6>
+         Serviços <p>{{p.quantidadeservicos | number:'3.0'}}</p>
+      </div>
+
+
+
+
+
+
   </div>
-  
-  <ion-item (click)="openAll()">
-    <ion-col class="" col-9>
-      <button  ion-button clear small>
-        <div> <span >Ver todos os pedidos</span></div>
-      </button>
-    
-    </ion-col>
-  </ion-item>
-  
-  </ion-list>
-  
-<br>                                                                                                                                                                                                                                                                                                                              
+
+
+
+    <div align="center" class="titgetorc">
+  Pedidos em aberto
+
+    </div>
+    <ion-list>
+      <ion-item  (click)="viewSolic(item)"  *ngFor="let item of pedidos | slice:0:5; let i=index">
+        <ion-thumbnail  item-end>
+          <img src="assets/checked.png">
+        </ion-thumbnail >
+        <h3 class="titulolist">{{i+1}}. {{item.nome_servico}} </h3>
+
+        <ion-row class="detalhescols">
+          <ion-col col-12 >
+            Status: <span class="statusaccept">Pendente</span>
+          </ion-col>
+          <ion-col >
+            Data: <span class="statusaccept">{{item.data | date: 'dd/MM/yyyy'}}</span>
+          </ion-col>
+          <ion-col >
+            Cod: <span class="statusaccept">#{{item.id_solicitacao_orcamento}}</span>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-list>
+  <div class=""  *ngIf="pedidos" (click)="openAll()" align="center">
+    <button  ion-button round small>
+      <div> <span >Ver todos os pedidos</span></div>
+    </button>
+
+  </div>
+
+
+
+
+
+<br>
 </ion-content>
-<ion-footer>
-  <div class="saldo" *ngFor="let p of saldo" (click)="openSaldo(p)"><h1>Debito: {{p.saldo | number:'1.2'}}</h1></div>
-  </ion-footer>                                             

@@ -1,25 +1,120 @@
 page-profile {
+
   ion-card {
     position: relative;
     text-align: center;
     height: 40%;
   }
+  ul {
+  padding: 0px;
+  margin-top: -25px;
+
+  &.rating li {
+    padding: 10px 1px !important;
+    background: none;
+    color: #ffb400;
+
+
+    ion-icon {
+      font-size: 30px;
+    }
+  }
+}
+.starreput{
+  position: relative;
+  margin-top: 20%;
+  margin-left: 20px;
+
+
+}
+.starreputtit{
+  position: absolute;
+    margin-left: 9%;
+    margin-top: 8%;
+  color:#FFF;
+
+
+
+}
+
+.bteditimg{
+
+  position: absolute;
+  font-weight: bold;
+font-size: 18px;
+  margin-left: 70%;
+top: 30%;
+color:#ccc;
+  z-index: 99999;
+}
+.circle {
+  background-color: #aaa;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  position: absolute;
+  top: 10%;
+  left: 60%;
+}
+
+.circle img {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.resultrep{
+  color: #fff;
+  font-weight: bold;
+  margin-left: 9%;
+  margin-top: 8%;
+}
+.infoprofile{
+  padding: 30px 0px 0px 30px;
+  color: #fff;
+}
+.imgprofile{
+  position: absolute;
+  top: 10%;
+  left: 60%;
+
+}
+.headerprof{
+  p{
+    margin-top: -10px;
+    font-size: 11px;
+  }
+  background-color: red;
+  height: 40%;
+      background-image: url('../assets/bgprof.png');
+}
+  .topcard{
+
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+  .content{
+    background-color:#13407d;
+  }
+  .boxinfo{
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+  .item {
+    background: none;
+    color: #fff;
+    p{
+      color: #fff;
+    }
+  }
 
   .titulototal{
-    font-weight: bold;
+  font-size: 11px;
     text-align: center;
     color: #FFF;
 
   }
-  .item{
-    .p{  font-weight: bold;
-          color: #0b6384;
-    }
-    .icon{
-      color: red;
-    }
 
-  }
 
   .card{
 
@@ -40,13 +135,20 @@ page-profile {
 
   .boxcont{
 
-    background-color: #0980ef;
+    background-color: #556080;
   //  border: 1px solid red;
 
   }
   .boxcont2{
 
     background-color: #38be10;
+  //  border: 1px solid red;
+
+  }
+
+  .boxcont3{
+
+    background-color: #556080;
   //  border: 1px solid red;
 
   }
@@ -65,6 +167,8 @@ page-profile {
   .reputacao{
     margin-top: -10px;
     font-size: 30px;
+    color: #4c9014;
+        font-weight: bold;
     text-align: center;
   }
   .numtotal{

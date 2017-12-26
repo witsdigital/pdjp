@@ -12,7 +12,6 @@ import { CallNumber } from '@ionic-native/call-number';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-pedido',
   templateUrl: 'pedido.html',
@@ -46,7 +45,7 @@ export class PedidoPage {
   }
 
   openChat(item){
-    
+
     this.chat = [
       {
         user1: this.fn.cod_fornecedor,
@@ -59,19 +58,19 @@ export class PedidoPage {
     this.resultado = result;
     if(this.resultado.mensage == 1){
       this.navCtrl.push(ChatPage, {
-        users: this.chat 
+        users: this.chat
       });
     }else{
       console.log("erro");
     }
   },(error)=>{
-  
+
   });
 
 
-  
-  
-      
+
+
+
     }
 
   cal(d){

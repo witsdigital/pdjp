@@ -15,6 +15,7 @@ dadosUser:any;
 tabBarElement:any;
 solics:any;
 countpend:any;
+rate:any;
 
 
   constructor(public service: ServiceProvider, public modal: ModalController, public app:  App, public loadingCtrl:LoadingController, private socialSharing: SocialSharing, public navCtrl: NavController, public navParams: NavParams) {
@@ -22,6 +23,10 @@ countpend:any;
     if(localStorage.getItem('userData')){
       this.dadosUser = JSON.parse(localStorage.getItem('userData'));
       console.log(this.dadosUser[0].nome);
+      this.service.getMedia(this.dadosUser[0].id_usuario).subscribe(data=>{
+  this.rate = data[0].media;
+
+});
 
     }
     this.getSol();

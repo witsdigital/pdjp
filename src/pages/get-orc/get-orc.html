@@ -1,173 +1,126 @@
-
 <ion-header>
   <ion-toolbar color="homeheader">
     <ion-buttons start>
       <button ion-button menuToggle>
-  <ion-icon name="options"></ion-icon>
+        <ion-icon name="options"></ion-icon>
       </button>
     </ion-buttons>
     <ion-title>Orçamentos</ion-title>
-
-
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content >
-
   <div padding>
-  <ion-segment [(ngModel)]="pet">
-    <ion-segment-button (ionSelect)="getOrcRes()" value="kittens">
-    Respondidos
-    </ion-segment-button>
-    <ion-segment-button (ionSelect)="getOrcAber()" value="puppies">
-    Pendentes
-    </ion-segment-button>
-    <ion-segment-button (ionSelect)="getAllOrc()" value="fim">
-    Todos
-    </ion-segment-button>
-  </ion-segment>
-</div>
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button (ionSelect)="getOrcRes()" value="kittens">
+        Respondidos
+      </ion-segment-button>
+      <ion-segment-button (ionSelect)="getOrcAber()" value="puppies">
+        Pendentes
+      </ion-segment-button>
+      <ion-segment-button (ionSelect)="getAllOrc()" value="fim">
+        Todos
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div [ngSwitch]="pet">
+    <ion-list *ngSwitchCase="'puppies'">
+      <div class="titgetorc">
+        Pedidos pendentes
+      </div>
+      <ion-list>
+        <ion-item (click)="viewSolic(item)" *ngFor="let item of pedidosa let i = index">
+          <ion-thumbnail  item-end>
+            <img src="assets/pendente.png">
+          </ion-thumbnail >
 
-<div [ngSwitch]="pet">
-  <ion-list *ngSwitchCase="'puppies'">
-  
+          <h3 class="titulolist">{{i+1}}. {{item.nome_servico}} </h3>
+
+          <ion-row class="detalhescols">
+            <ion-col >
+              Status: <span class="statusaccept">Aceito</span>
+            </ion-col>
+            <ion-col >
+              Data: <span class="statusaccept">{{item.data | date: 'dd/MM/yyyy'}}</span>
+            </ion-col>
+
+            <ion-col>
+
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'kittens'">
+      <div class="titgetorc">
+        Pedidos respondidos
+
+      </div>
+      <ion-list>
+        <ion-item (click)="viewSolic(item)"  *ngFor="let item of pedidosr let i = index">
+          <ion-thumbnail  item-end>
+            <img src="assets/recebido.png">
+          </ion-thumbnail >
+
+          <h3 class="titulolist">{{i+1}}. {{item.nome_servico}} </h3>
+
+          <ion-row class="detalhescols">
+            <ion-col >
+              Status: <span class="statusaccept">Aceito</span>
+            </ion-col>
+            <ion-col >
+              Data: <span class="statusaccept">{{item.data | date: 'dd/MM/yyyy'}}</span>
+            </ion-col>
+
+            <ion-col>
+
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
 
 
-    <div *ngFor="let item of pedidosa | slice:0:6; let i=index">
-    <ion-card (click)="viewSolic(item)" *ngIf="item.count==0" class="cardrad" >
-        
-  <ion-card-header >
-  
-  Serviço:
-  </ion-card-header>
-  <button ion-item >
-  <ion-icon name="cart" item-start></ion-icon>
-  <span class="tituloservice">  {{item.nome_servico}}</span>
-  </button>
-  <ion-row>
-   <ion-col  class="footercard2" col-9>
-     <button  ion-button icon-left clear small>
-       <ion-icon name="alert"></ion-icon>
-       <div>  <span>Pendente</span></div>
-     </button>
-  
-   </ion-col>
-  
-  
-  
-  
-  
-   <ion-col col-3 *ngIf="item.status==0">
-     <ion-note class=" datecard">
-       <p><ion-icon name="ios-calendar-outline"></ion-icon></p>
-  <p>{{item.data | date: 'dd/MM/yyyy'}}</p>
-  </ion-note>
-   </ion-col>
-  
-  </ion-row>
-  </ion-card>
+    </ion-list>
+
+
+
+    <ion-list *ngSwitchCase="'fim'">
+      <div class="titgetorc">
+      Todos
+
+      </div>
+      <ion-list>
+        <ion-item (click)="viewSolic(item)"  *ngFor="let item of pedidos let i = index">
+          <ion-thumbnail  item-end>
+            <img src="assets/recebido.png">
+          </ion-thumbnail >
+
+          <h3 class="titulolist">{{i+1}}. {{item.nome_servico}} </h3>
+
+          <ion-row class="detalhescols">
+            <ion-col >
+              Status: <span class="statusaccept">Aceito</span>
+            </ion-col>
+            <ion-col >
+              Data: <span class="statusaccept">{{item.data | date: 'dd/MM/yyyy'}}</span>
+            </ion-col>
+
+            <ion-col>
+
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+
+
+
+
+    </ion-list>
+
+
 
   </div>
-  
-  </ion-list>
-  
-
-
-
-
-<ion-list *ngSwitchCase="'kittens'">
- 
-
-  <div *ngFor="let item of pedidosr | slice:0:6; let i=index">
-  <ion-card (click)="viewSolic(item)"  *ngIf="item.count==1" class="cardrad">
-
-    
-    <ion-card-header>
-Serviço:
-</ion-card-header>
-<button ion-item>
-<ion-icon name="cart" item-start></ion-icon>
-<span class="tituloservice">  {{item.nome_servico}}</span>
-</button>
-<ion-row >
-
-
- <ion-col class="footercard" col-9>
-  <button    ion-button icon-left clear small>
-    <ion-icon name="thumbs-up"></ion-icon>
-    <div> <span >Respondido</span></div>
-  </button>
-
-</ion-col>
-
-
-
-
- <ion-col  col-3>
-   <ion-note class=" datecard">
-     <p><ion-icon name="ios-calendar-outline"></ion-icon></p>
-<p>{{item.data | date: 'dd/MM/yyyy'}}</p>
-</ion-note>
- </ion-col>
-
-</ion-row>
-</ion-card>
-</div>
-</ion-list>
-
-
-
-<ion-list *ngSwitchCase="'fim'">
-  
-
-  <div *ngFor="let item of pedidos; let i=index">
-  <ion-card (click)="viewSolic(item)"   class="cardrad">
-
-    
-    <ion-card-header>
-Serviço:
-</ion-card-header>
-<button ion-item>
-<ion-icon name="cart" item-start></ion-icon>
-<span class="tituloservice">  {{item.nome_servico}}</span>
-</button>
-<ion-row >
-  <ion-col *ngIf="item.count==0" class="footercard2" col-9>
-    <button  ion-button icon-left clear small>
-      <ion-icon name="alert"></ion-icon>
-      <div>  <span>Pendente</span></div>
-    </button>
- 
-  </ion-col>
-
- <ion-col *ngIf="item.count==1" class="footercard" col-9>
-  <button    ion-button icon-left clear small>
-    <ion-icon name="thumbs-up"></ion-icon>
-    <div> <span >Respondido</span></div>
-  </button>
-
-</ion-col>
-
-
-
-
- <ion-col  col-3>
-   <ion-note class=" datecard">
-     <p><ion-icon name="ios-calendar-outline"></ion-icon></p>
-<p>{{item.data | date: 'dd/MM/yyyy'}}</p>
-</ion-note>
- </ion-col>
-
-</ion-row>
-</ion-card>
-</div>
-
-
-</ion-list>
-
-
-
-</div>
 
 </ion-content>

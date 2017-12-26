@@ -1,43 +1,62 @@
 
 
-<ion-content >
+
+<ion-header>
+
+</ion-header>
+<ion-content class="content"  >
+      <!-- <p (click)="editarimg()" class="bteditimg">Editar</p> -->
+  <div class="headerprof">
+
+  <div class="infoprofile">
+    <h2>{{dadosUser[0].nome}}</h2>
+    <p>{{dadosUser[0].email}}</p>
+
+  </div>
+
+  <div class="circle">
+          <img  class="destaquecat" src="assets/avatar.jpg" alt="">
+    <!-- <img *ngIf="!imglist[0]"  src="{{dadosUser.img}}" alt=""> -->
+    <!-- <img *ngIf="imglist[0]"  class=""  src="{{base64Image}}" alt=""> -->
+  </div>
+
+    <div class="starreputtit">
+<p>Reputação</p>
 
 
-  <ion-card class="card-background-page">
-      <span class="editar" (click)="edit()">Editar</span>
+    </div>
+    <div class="starreput">
+      <rating [(ngModel)]="rate"
+              readOnly="true"
+              max="5" emptyStarIconName="star-outline"
+              halfStarIconName="star-half"
+              starIconName="star"
+              nullable="true"  >
+            </rating>
 
-<div align="center" class="">
-      <img  class="destaquecat" src="assets/avatar.jpg" alt="">
+    </div>
+    <p *ngIf="rate>4 && rate<5" class="resultrep">Ótima</p>
+    <p *ngIf="rate>3 && rate<4" class="resultrep">Boa</p>
+    <p *ngIf="rate>2 && rate<3" class="resultrep">Regular</p>
+    <p *ngIf="rate>0 && rate<2" class="resultrep">Ruim</p>
+    <p *ngIf="rate==0" class="resultrep">Novo</p>
 
-</div>
-  <div class="card-title">{{dadosUser[0].nome}}</div>
-  <div class="card-subtitle">{{dadosUser[0].email}}</div>
-  </ion-card>
-
-<ion-row >
-
-<ion-col class="boxcont" col-6>
-<p class="titulototal">  Serviços Concluído</p>
-  <p class="numtotal">5</p>
+  </div>
+<ion-row class="boxinfo" >
+<ion-col class="boxcont" col-4>
+<p class="titulototal"> Pendentes</p>
+  <p class="numtotal">{{orcs}}</p>
 </ion-col>
-<ion-col col-6 class="boxcont2">
-  <p class="titulototal">  Serviços Solicitados</p>
+<ion-col class="boxcont2" col-4>
+<p class="titulototal"> Concluído</p>
+  <p class="numtotal">{{accepts}}</p>
+</ion-col>
+<ion-col col-4 class="boxcont3">
+  <p class="titulototal"> Solicitados</p>
 <p class="numtotal">{{countpend}}</p>
 </ion-col>
-
 </ion-row>
-<ion-row>
-<ion-col col-12>
-<p class="tituloreput">Reputação</p>
-<p class="reputacao">
-  <ion-icon class="star" name="star"></ion-icon>
-<ion-icon class="star" name="star"></ion-icon>
-<ion-icon class="star" name="star"></ion-icon>
-<ion-icon class="star" name="star"></ion-icon>
-<ion-icon class="star" name="star"></ion-icon></p>
-</ion-col>
 
-</ion-row>
 <button (click)="share()" ion-item>
   <ion-icon name="ios-share-outline" item-start></ion-icon>
 <p>Compartilhar</p>

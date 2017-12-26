@@ -32,7 +32,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { OneSignal } from '@ionic-native/onesignal';
 import { Geolocation } from '@ionic-native/geolocation';
 import { CallNumber } from '@ionic-native/call-number';
-
+import { Ionic2RatingModule } from 'ionic2-rating';
 
 @NgModule({
   declarations: [
@@ -59,6 +59,7 @@ NotificacaoPage,
     GetPedidosPage
   ],
   imports: [
+    Ionic2RatingModule,
     HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),

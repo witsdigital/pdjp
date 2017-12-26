@@ -11,7 +11,6 @@ import { IonicPage, NavController, NavParams, ModalController, LoadingController
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-get-pedidos',
   templateUrl: 'get-pedidos.html',
@@ -23,23 +22,23 @@ pedidos: any;
 status: any;
 
 constructor(public viewCtrl: ViewController, public localNotifications:LocalNotifications, public network: Network, public navCtrl: NavController,public modalCtrl: ModalController,public loadingCtrl: LoadingController, public service: ServiceProvider) {
- 
- 
- 
+
+
+
      if(localStorage.getItem('userData')){
        this.dadosUser = JSON.parse(localStorage.getItem('userData'));
        console.log(this.dadosUser[0].nome);
- 
-       
+
+
      }
- 
+
  this.getpedidos();
- 
+
  this.network.onDisconnect().subscribe(() => {
    console.log('network desconnected!');
  this.status = "desconectado";
  });
- 
+
  this.network.onConnect().subscribe(() => {
    console.log('network connected!');
    this.status = "conectado"
@@ -52,22 +51,22 @@ constructor(public viewCtrl: ViewController, public localNotifications:LocalNoti
      }
    }, 3000);
  });
- 
- 
- 
-   }
- 
 
- 
+
+
+   }
+
+
+
  getpedidos(){
-   
+
        this.service.getped(this.dadosUser[0].id_usuario).then((data)=>{
        this.pedidos = data;
        console.log(data);
        })
 
  }
- 
+
  close(){
   this.viewCtrl.dismiss();
 }
@@ -79,6 +78,5 @@ constructor(public viewCtrl: ViewController, public localNotifications:LocalNoti
 
 
 
-  
+
  }
- 

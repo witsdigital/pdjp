@@ -8,13 +8,12 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-view-saldo',
   templateUrl: 'view-saldo.html',
 })
 export class ViewSaldoPage {
-  
+
   ct: any;
 
   constructor(public viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams) {

@@ -9,13 +9,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
 @Component({
   selector: 'page-chat',
   templateUrl: 'chat.html',
 })
 export class ChatPage {
-  
+
   lista: any;
   mensagem: string;
   setmensagem: any;
@@ -28,7 +27,7 @@ export class ChatPage {
     this.usuarios = this.navParams.get('users');
     this.dadosUser = JSON.parse(localStorage.getItem('userData'));
     this.getMensagens();
-    
+
 
   }
 
@@ -43,7 +42,7 @@ export class ChatPage {
         id2: this.usuarios[0].user2
       }
     ];
-  
+
     this.service.postMensagem(this.setmensagem[0]).then((result)=>{
       this.setmensagem = result;
       if(this.setmensagem.mensage == 1){
@@ -52,27 +51,27 @@ export class ChatPage {
         console.log("erro");
       }
     },(error)=>{
-    
-    });
-  
 
-  
-  
-      
+    });
+
+
+
+
+
     }
 
 
 
 
 getMensagens(){
-  
+
   this.service.getChat(this.usuarios[0].user1, this.usuarios[0].user2).subscribe((data)=>{
     this.chat = data;
     console.log(this.chat);
   },(erro)=>{
     console.log(erro);
   });
-  
+
   setInterval(() => {
     this.service.getMensagens(this.chat[0].id_chat).subscribe((data)=>{
       this.lista = data;
@@ -83,7 +82,7 @@ getMensagens(){
 
   }, 1000);
 
-  
+
     }
 
 

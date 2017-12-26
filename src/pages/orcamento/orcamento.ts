@@ -43,6 +43,7 @@ export class OrcamentoPage {
 
       dados.statusresp = 2;
       dados.valor = 0;
+      dados.cod_user = this.ct.cod_user;
       if(dados.nc){
           dados.desc_orcamentos +=  dados.desc_orcamentos+'o orçamento não foi compreendido';
 
@@ -104,7 +105,7 @@ getimagensorc(){
 
 
 }
-  
+
 
   close(){
     this.viewCtrl.dismiss();

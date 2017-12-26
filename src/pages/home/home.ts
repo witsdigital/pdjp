@@ -48,7 +48,7 @@ constructor(public localNotifications:LocalNotifications, public network: Networ
       this.dadosUser = JSON.parse(localStorage.getItem('userData'));
       console.log(this.dadosUser[0].nome);
 
-      
+
     }
 
 this.getSaldo();
@@ -87,17 +87,22 @@ this.network.onConnect().subscribe(() => {
   }
 
 getpedidos(){
-  
-    setInterval(() => {
-      this.service.getped(this.dadosUser[0].id_usuario).then((data)=>{
-      this.pedidos = data;
-      console.log(this.pedidos);
-      })
 
+    setInterval(() => {
+
+      this.para = {user:this.dadosUser[0].id_usuario};
+      this.service.getOrcamentosAber(this.para).then((data)=>{
+        console.log(data);
+        this.pedidos = data;
+
+      })
 
 
     }, 10000);
 }
+
+
+
 
   teste(){
 
@@ -172,7 +177,7 @@ getDestaques(){
     this.service.getCat().subscribe(
       (data)=>{
         this.cats = data;
-  
+
   this.getDestaques();
   loader.dismiss();
 
@@ -220,7 +225,7 @@ getSaldo(){
 }
 
 openSaldo(item){
-  
+
     let modal = this.modalCtrl.create(ViewSaldoPage, {ct: item});
     modal.onDidDismiss(data => {
 
@@ -228,7 +233,7 @@ openSaldo(item){
     });
     modal.present();
 
-  
+
 }
 
 
@@ -243,6 +248,3 @@ openAll(){
 }
 
 }
-
-
-
