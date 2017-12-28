@@ -19,8 +19,8 @@
       <ion-segment-button (ionSelect)="getOrcAber()" value="puppies">
         Pendentes
       </ion-segment-button>
-      <ion-segment-button (ionSelect)="getAllOrc()" value="fim">
-        Todos
+      <ion-segment-button (ionSelect)="getpedidos()" value="fim">
+        Aceitos
       </ion-segment-button>
     </ion-segment>
   </div>
@@ -88,16 +88,16 @@
 
     <ion-list *ngSwitchCase="'fim'">
       <div class="titgetorc">
-      Todos
+      Aceitos
 
       </div>
       <ion-list>
-        <ion-item (click)="viewSolic(item)"  *ngFor="let item of pedidos let i = index">
+        <ion-item (click)="openPedido(item)"  *ngFor="let item of pedidos let i = index">
           <ion-thumbnail  item-end>
             <img src="assets/recebido.png">
           </ion-thumbnail >
 
-          <h3 class="titulolist">{{i+1}}. {{item.nome_servico}} </h3>
+          <h3 class="titulolist">{{i+1}}. {{item.nome}} </h3>
 
           <ion-row class="detalhescols">
             <ion-col >

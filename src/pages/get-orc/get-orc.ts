@@ -1,3 +1,4 @@
+import { PedidoPage } from './../pedido/pedido';
 import { OrcamentoPage } from './../orcamento/orcamento';
 import { Component } from '@angular/core';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
@@ -58,7 +59,22 @@ console.log(data);
   }
 
 
+  getpedidos(){
+    
+           this.service.getped(this.dadosUser[0].id_usuario).then((data)=>{
+           this.pedidos = data;
+           console.log(data);
+           })
+    
+  }
 
+  openPedido(item){
+    let modal = this.modalCtrl.create(PedidoPage, {ct: item});
+    modal.onDidDismiss(data => {
+    });
+    modal.present();
+  
+  }
 
   getAllOrc(){
     this.para = {user:this.dadosUser[0].id_usuario};

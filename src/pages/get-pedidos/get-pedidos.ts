@@ -1,3 +1,4 @@
+import { PedidoPage } from './../pedido/pedido';
 import { ServiceProvider } from './../../providers/service/service';
 import { Network } from '@ionic-native/network';
 import { LocalNotifications } from '@ionic-native/local-notifications';
@@ -70,12 +71,6 @@ constructor(public viewCtrl: ViewController, public localNotifications:LocalNoti
  close(){
   this.viewCtrl.dismiss();
 }
-
-
-
-
-
-
 
 
 
