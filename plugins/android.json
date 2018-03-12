@@ -1,61 +1,18 @@
 {
-    "prepare_queue": {
-        "installed": [],
-        "uninstalled": []
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {},
+  "dependent_plugins": {
+    "cordova-plugin-app-event": {
+      "PACKAGE_NAME": "io.pro.starter"
     },
-    "config_munge": {
-        "files": {}
-    },
-    "installed_plugins": {
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "io.pro.starter"
-        },
-        "cordova-plugin-file": {
-            "PACKAGE_NAME": "io.pro.starter"
-        },
-        "cordova-plugin-file-transfer": {
-            "PACKAGE_NAME": "io.pro.starter"
-        },
-        "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "io.pro.starter"
-        },
-        "cordova-plugin-network-information": {
-            "PACKAGE_NAME": "io.pro.starter"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "io.pro.starter"
-        },
-        "cordova-plugin-statusbar": {
-            "PACKAGE_NAME": "io.pro.starter"
-        },
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "io.pro.starter"
-        },
-        "cordova-plugin-x-socialsharing": {
-            "PACKAGE_NAME": "io.pro.starter"
-        },
-        "de.appplant.cordova.plugin.local-notification": {
-            "PACKAGE_NAME": "io.pro.starter"
-        },
-        "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "io.pro.starter"
-        },
-        "mx.ferreyra.callnumber": {
-            "PACKAGE_NAME": "io.pro.starter"
-        },
-        "onesignal-cordova-plugin": {
-            "PACKAGE_NAME": "io.pro.starter"
-        }
-    },
-    "dependent_plugins": {
-        "cordova-plugin-app-event": {
-            "PACKAGE_NAME": "io.pro.starter"
-        },
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "io.pro.starter"
-        },
-        "es6-promise-plugin": {
-            "PACKAGE_NAME": "io.pro.starter"
-        }
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "io.pro.starter"
     }
+  }
 }

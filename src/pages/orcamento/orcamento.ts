@@ -26,14 +26,16 @@ export class OrcamentoPage {
 
   constructor(public navCtrl: NavController,public toastCtrl:ToastController, public service : ServiceProvider, public navParams: NavParams, public viewCtrl: ViewController) {
     this.ct = this.navParams.get('ct');
-    console.log(this.ct);
     this.cadastro = this.navParams.get('ct');
+    this.dadosUser = JSON.parse(localStorage.getItem('userData'));
+    
 
     this.getimagensorc();
 
   }
 
   ionViewDidLoad() {
+    console.log(this.dadosUser);
     console.log(this.imagens);
   }
 
@@ -44,6 +46,7 @@ export class OrcamentoPage {
       dados.statusresp = 2;
       dados.valor = 0;
       dados.cod_user = this.ct.cod_user;
+      
       if(dados.nc){
           dados.desc_orcamentos +=  dados.desc_orcamentos+'o orçamento não foi compreendido';
 
@@ -62,6 +65,8 @@ export class OrcamentoPage {
       dados.statusresp = 1;
       dados.desc_orcamentos = 'O seu serviço pode ser executado';
     }
+
+    dados.cod_usuario = this.dadosUser[0].id_usuario;
 
     this.service.postRespOrc(dados).then((data)=>{
       console.log(data);

@@ -24,7 +24,7 @@ dadosUser:any;
 
   constructor(public modalCtrl: ModalController, public service : ServiceProvider,public navCtrl: NavController, public navParams: NavParams) {
     this.dadosUser = JSON.parse(localStorage.getItem('userData'));
-    console.log(this.dadosUser[0].nome);
+    console.log(this.dadosUser[0]);
   
   }
 
