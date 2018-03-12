@@ -52,16 +52,14 @@ rate:any;
     loader.present();
     localStorage.removeItem('userData');
        loader.dismiss();
-       this.nav.setRoot(LoginPage);
-  this.app.getRootNav().setRoot(LoginPage);
+       this.app.getRootNav().setRoot(LoginPage);
+
 
   }
 
 
   sair(){
     localStorage.removeItem('userData');
-
-
   }
 
   getSol(){
