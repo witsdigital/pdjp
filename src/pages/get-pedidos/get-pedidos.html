@@ -12,41 +12,26 @@
 
 <ion-content>
   <ion-list>
-    <div *ngFor="let item of pedidos; let i=index">
-    <ion-card (click)="openPedido(item)"   class="cardrad">
-  
-      
-      <ion-card-header>
-  Pedido:
-  </ion-card-header>
-  <button ion-item>
-    <ion-icon name="build"></ion-icon> 
-  <span class="tituloservice"> {{item.nome}}</span>
-  </button>
-  <ion-row >
-   <ion-col class="footercard" col-9>
-    <button    ion-button icon-left clear small>
-      <ion-icon name="checkmark"></ion-icon>
-      <div> <span >O serviço pode ser executado</span></div>
-    </button>
-  
-  </ion-col>
-  
-  
-  
-  
-   <ion-col  col-3>
-     <ion-note class=" datecard">  
-       <p><ion-icon name="ios-calendar-outline"></ion-icon></p>
-  <p>{{item.data | date: 'dd/MM/yyyy'}}</p>
-  </ion-note>
-   </ion-col>
-  
-  </ion-row>
-  </ion-card>
-  </div>
+    <ion-item (click)="openPedido(item)" *ngFor="let item of pedidos let i = index">
+      <ion-thumbnail  item-end>
+        <img src="assets/recebido.png">
+      </ion-thumbnail >
 
-  
+      <h3 class="titulolist">{{i+1}}. {{item.nome}} </h3>
+
+      <ion-row class="detalhescols">
+        <ion-col >
+          Status: <span class="statusaccept">Aceito</span>
+        </ion-col>
+        <ion-col >
+          Data: <span class="statusaccept">{{item.data | date: 'dd/MM/yyyy'}}</span>
+        </ion-col>
+
+        <ion-col>
+
+        </ion-col>
+      </ion-row>
+    </ion-item>
   </ion-list>
 
 </ion-content>
