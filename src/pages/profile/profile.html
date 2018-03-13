@@ -35,9 +35,9 @@
             </rating>
 
     </div>
-    <p *ngIf="rate>4 && rate<5" class="resultrep">Ótima</p>
-    <p *ngIf="rate>3 && rate<4" class="resultrep">Boa</p>
-    <p *ngIf="rate>2 && rate<3" class="resultrep">Regular</p>
+    <p *ngIf="rate>=4 && rate<=5" class="resultrep">Ótima</p>
+    <p *ngIf="rate>=3 && rate<4" class="resultrep">Boa</p>
+    <p *ngIf="rate>=2 && rate<3" class="resultrep">Regular</p>
     <p *ngIf="rate>0 && rate<2" class="resultrep">Ruim</p>
     <p *ngIf="rate==0" class="resultrep">Novo</p>
 
