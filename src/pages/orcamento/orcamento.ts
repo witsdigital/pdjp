@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ToastController, NavController, NavParams,ViewController } from 'ionic-angular';
+import { ToastController, NavController, NavParams, ViewController, LoadingController } from 'ionic-angular';
 import {ServiceProvider} from '../../providers/service/service';
 import {TabsPage} from '../tabs/tabs';
 
@@ -24,18 +24,26 @@ export class OrcamentoPage {
   dados: any;
   imagens: any;
 
-  constructor(public navCtrl: NavController,public toastCtrl:ToastController, public service : ServiceProvider, public navParams: NavParams, public viewCtrl: ViewController) {
+  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController,public toastCtrl:ToastController, public service : ServiceProvider, public navParams: NavParams, public viewCtrl: ViewController) {
     this.ct = this.navParams.get('ct');
     this.cadastro = this.navParams.get('ct');
     this.dadosUser = JSON.parse(localStorage.getItem('userData'));
-    
 
+
+    let loader = this.loadingCtrl.create({
+      content: "Aguarde...",
+      duration: 3000
+    });
+    loader.present();
+    
+    setTimeout(() => {
     this.getimagensorc();
+    this.imagens;
+    }, 1000);
 
   }
 
   ionViewDidLoad() {
-    console.log(this.dadosUser);
     console.log(this.imagens);
   }
 
