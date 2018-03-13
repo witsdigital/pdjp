@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {ServiceProvider} from '../../providers/service/service';
 
 /**
  * Generated class for the NotificacaoPage page.
@@ -14,24 +15,42 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
   templateUrl: 'notificacao.html',
 })
 export class NotificacaoPage {
-  tppage:any;
+  dadosUser:any;
+  dados:any;
 
-  constructor(public viewCtrl:ViewController, public navCtrl: NavController, public navParams: NavParams) {
-  if(this.navParams.get('tp')){
-    this.tppage = true;
+  constructor(public service: ServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
 
-  }else{
-    this.tppage= false;
-  }
+    if(localStorage.getItem('userData')){
+      this.dadosUser = JSON.parse(localStorage.getItem('userData'));
 
+    }
+
+    this.getNot();
+
+    setInterval(() => {
+      this.getNot();
+    }, 10000);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NotificacaoPage');
   }
+  doRefresh(refresher) {
+this.getNot();
 
-  close(){
-    this.viewCtrl.dismiss();
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
+
+  getNot(){
+
+    this.service.getNotByUser(this.dadosUser[0].id_usuario).subscribe((data)=>{
+      this.dados = data;
+      console.log(data);
+    });
+
   }
 
 }
