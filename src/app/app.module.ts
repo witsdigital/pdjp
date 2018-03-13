@@ -33,6 +33,7 @@ import { OneSignal } from '@ionic-native/onesignal';
 import { Geolocation } from '@ionic-native/geolocation';
 import { CallNumber } from '@ionic-native/call-number';
 import { Ionic2RatingModule } from 'ionic2-rating';
+import { AvaliacaoPage } from '../pages/avaliacao/avaliacao';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ NotificacaoPage,
     PedidoPage,
     LocalizacaoPage,
     ChatPage,
-    GetPedidosPage
+    GetPedidosPage,
+    AvaliacaoPage
   ],
   imports: [
     Ionic2RatingModule,
@@ -85,7 +87,8 @@ NotificacaoPage,
     PedidoPage,
     LocalizacaoPage,
     ChatPage,
-    GetPedidosPage
+    GetPedidosPage,
+    AvaliacaoPage
   ],
   providers: [
     OneSignal,

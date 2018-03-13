@@ -32,8 +32,6 @@ dadosUser:any;
     console.log('ionViewDidLoad GetOrcPage');
   }
   getOrc(){
-
-
     this.service.getOrc(this.dadosUser[0].id_usuario).subscribe((data)=>{
       this.orcs = data;
 console.log(data);

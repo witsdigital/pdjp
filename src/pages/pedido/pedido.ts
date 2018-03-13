@@ -1,7 +1,9 @@
+import { GetPedidosPage } from './../get-pedidos/get-pedidos';
+import { AvaliacaoPage } from './../avaliacao/avaliacao';
 import { ChatPage } from './../chat/chat';
 import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ToastController, ModalController } from 'ionic-angular';
 import { LocalizacaoPage } from '../localizacao/localizacao';
 import { CallNumber } from '@ionic-native/call-number';
 
@@ -23,7 +25,7 @@ export class PedidoPage {
   chat: any;
   resultado: any;
 
-  constructor(private callNumber: CallNumber, public service: ServiceProvider, public viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public toastCtrl: ToastController, public modalCtrl: ModalController, private callNumber: CallNumber, public service: ServiceProvider, public viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams) {
     this.fn = this.navParams.get('ct');
     this.getdados(this.fn.cod_usuario_solicitante);
     this.service.getMedia(this.fn.cod_usuario_solicitante).subscribe(data=>{
@@ -41,6 +43,24 @@ export class PedidoPage {
 
   openMap(item){
     this.navCtrl.push(LocalizacaoPage, {item: item});
+
+  }
+
+  ava(item){
+    if(item.status_avaliacao==1){
+      let toast = this.toastCtrl.create({
+        message: 'Pedido jรก Avaliado',
+        duration: 3000,
+        position: 'top'
+      });
+      toast.present();
+    }else{
+      let modal = this.modalCtrl.create(AvaliacaoPage, {item: item});
+      modal.onDidDismiss(data => {
+         this.navCtrl.setRoot(GetPedidosPage);
+      });
+      modal.present();
+    }
 
   }
 

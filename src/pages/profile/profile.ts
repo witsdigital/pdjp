@@ -27,7 +27,7 @@ rate:any;
   this.rate = data[0].media;
 
 });
-
+console.log(this.dadosUser);
     }
     this.getSol();
   }

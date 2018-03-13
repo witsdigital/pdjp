@@ -15,9 +15,9 @@
   </div>
 
   <div class="circle">
-          <img  class="destaquecat" src="assets/avatar.jpg" alt="">
-    <!-- <img *ngIf="!imglist[0]"  src="{{dadosUser.img}}" alt=""> -->
-    <!-- <img *ngIf="imglist[0]"  class=""  src="{{base64Image}}" alt=""> -->
+          <img  class="destaquecat" src="" alt="">
+     <img *ngIf="!dadosUser[0].img"  src="assets/avatar.jpg" alt=""> 
+     <img *ngIf="dadosUser[0].img"  class=""  src="{{dadosUser[0].img}}" alt="">
   </div>
 
     <div class="starreputtit">
@@ -42,20 +42,7 @@
     <p *ngIf="rate==0" class="resultrep">Novo</p>
 
   </div>
-<ion-row class="boxinfo" >
-<ion-col class="boxcont" col-4>
-<p class="titulototal"> Pendentes</p>
-  <p class="numtotal">{{orcs}}</p>
-</ion-col>
-<ion-col class="boxcont2" col-4>
-<p class="titulototal"> Concluído</p>
-  <p class="numtotal">{{accepts}}</p>
-</ion-col>
-<ion-col col-4 class="boxcont3">
-  <p class="titulototal"> Solicitados</p>
-<p class="numtotal">{{countpend}}</p>
-</ion-col>
-</ion-row>
+
 
 <button (click)="share()" ion-item>
   <ion-icon name="ios-share-outline" item-start></ion-icon>

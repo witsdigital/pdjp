@@ -72,6 +72,8 @@ constructor(public viewCtrl: ViewController, public localNotifications:LocalNoti
   this.viewCtrl.dismiss();
 }
 
-
+openPedido(item) {
+  this.navCtrl.push(PedidoPage,  {ct: item});
+}
 
  }
