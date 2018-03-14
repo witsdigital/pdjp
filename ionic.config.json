@@ -1,6 +1,6 @@
 {
   "name": "servicoStorePro",
-  "app_id": "",
+  "app_id": "b5a24f0b",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
