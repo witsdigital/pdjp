@@ -91,5 +91,5 @@
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="Localização" />
     </plugin>
     <plugin name="mx.ferreyra.callnumber" spec="~0.0.2" />
-    <engine name="android" spec="~6.1.2" />
+    <engine name="android" spec="~6.2.3" />
 </widget>
